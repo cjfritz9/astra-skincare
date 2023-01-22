@@ -6,8 +6,26 @@ import { useNavigate } from 'react-router';
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
-
   const { openCart, openMenu, checkout } = React.useContext<any>(ShopContext);
+
+  const getCartItemQty = () => {
+    let cartItemQty = 0;
+    checkout.lineItems?.forEach((item: any) => {
+      if (cartItemQty >= 9) return;
+      cartItemQty += item.quantity;
+    });
+    if (cartItemQty === 9) {
+      return cartItemQty.toString();
+    } else if (cartItemQty > 9) {
+      return '9+';
+    } else {
+      return cartItemQty.toString();
+    }
+  };
+
+  React.useEffect(() => {
+    getCartItemQty();
+  }, [openCart, checkout, getCartItemQty]);
 
   return (
     <Chakra.Flex
@@ -35,11 +53,12 @@ const NavBar: React.FC = () => {
         <Chakra.Badge
           backgroundColor='#FF38BD'
           borderRadius='50%'
-          h='20px'
-          w='20px'
+          h={22}
+          w={22}
+          p='1px'
           textAlign='center'
         >
-          {checkout.subtotalPrice ? +checkout.subtotalPrice.amount / 49 : 0}
+          {getCartItemQty()}
         </Chakra.Badge>
         <Chakra.Icon
           fill='white'
