@@ -39,9 +39,26 @@ export class ShopProvider extends React.Component {
       .then((checkout) => this.setState({ checkout }));
   };
 
-  addItemToCheckout = async () => {};
+  addItemToCheckout = async (variantId, quantity) => {
+    const checkout = await client.checkout.addLineItems(
+      this.state.checkout.id,
+      {
+        variantId,
+        quantity: +quantity
+      }
+    );
+    this.setState({ checkout });
+    this.openCart();
+    console.log(checkout);
+  };
 
-  removeLineItem = async (lineItemsToRemove) => {};
+  removeLineItem = async (lineItemIds) => {
+    const checkout = await client.checkout.removeLineItems(
+      this.state.checkout.id,
+      lineItemIds
+    );
+    this.setState({ checkout });
+  };
 
   fetchAllProducts = () => {
     client.product.fetchAll().then((products) => {
@@ -57,13 +74,21 @@ export class ShopProvider extends React.Component {
     });
   };
 
-  closeCart = async () => {};
+  closeCart = async () => {
+    this.setState({ isCartOpen: false });
+  };
 
-  openCart = async () => {};
+  openCart = async () => {
+    this.setState({ isCartOpen: true });
+  };
 
-  closeMenu = async () => {};
+  closeMenu = async () => {
+    this.setState({ isMenuOpen: false });
+  };
 
-  openMenu = async () => {};
+  openMenu = async () => {
+    this.setState({ isMenuOpen: true });
+  };
 
   render() {
     return (
