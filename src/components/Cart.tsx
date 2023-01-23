@@ -2,10 +2,17 @@ import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
 import * as ReactIcons from 'react-icons/md';
 import { ShopContext } from '../context/shopContext';
+import Button from './Button';
 
 const Cart: React.FC = () => {
-  const { isCartOpen, closeCart, checkout, removeLineItem } =
-    React.useContext<any>(ShopContext);
+  const {
+    isCartOpen,
+    closeCart,
+    checkout,
+    removeLineItem,
+    themeColor2,
+    accentColor1
+  } = React.useContext<any>(ShopContext);
 
   return (
     <>
@@ -67,12 +74,13 @@ const Cart: React.FC = () => {
                 <Chakra.Text>
                   {'$' + checkout.totalPrice.amount + '0'}
                 </Chakra.Text>
-                <Chakra.Button
-                  colorScheme='blue'
+                <Button
+                  text='Checkout'
+                  textColor={accentColor1}
+                  bgColor={themeColor2}
+                  size={{ w: '10rem' }}
                   onClick={() => (window.location.href = checkout.webUrl)}
-                >
-                  Checkout
-                </Chakra.Button>
+                />
               </>
             ) : null}
           </Chakra.DrawerFooter>

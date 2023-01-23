@@ -1,9 +1,15 @@
 // @ts-nocheck
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
+import { ShopContext } from '../context/shopContext';
+import Button from './Button';
+import { useNavigate } from 'react-router';
 
 const ImageWithText: React.FC = ({ reverse, image, heading, text }) => {
+  const navigate = useNavigate();
   const reverseSection = reverse ? 'row-reverse' : 'row';
+
+  const { themeColor2, accentColor1 } = React.useContext<any>(ShopContext);
 
   return (
     <Chakra.Box>
@@ -20,9 +26,13 @@ const ImageWithText: React.FC = ({ reverse, image, heading, text }) => {
           <Chakra.Text m='2rem' textAlign='center'>
             {text}
           </Chakra.Text>
-          <Chakra.Button w='10rem' backgroundColor='#FF38BD' color='white' _hover={{opacity: 0.9}} _active={{transform: 'scale(0.98)'}}>
-            Browse
-          </Chakra.Button>
+          <Button
+            text='Browse'
+            textColor={accentColor1}
+            bgColor={themeColor2}
+            size={{ w: '10rem' }}
+            onClick={() => navigate('/products')}
+          />
         </Chakra.Flex>
       </Chakra.Flex>
     </Chakra.Box>

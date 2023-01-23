@@ -16,10 +16,10 @@ const Footer: React.FC = () => {
             The Green Blast
           </Link>
           <Link className='footer-link' to='/'>
-            The Blue Berry
+            The Yellow Mellow
           </Link>
           <Link className='footer-link' to='/'>
-            Sustainability
+            The Blue Berry
           </Link>
         </Chakra.VStack>
         <Chakra.VStack p='2rem'>

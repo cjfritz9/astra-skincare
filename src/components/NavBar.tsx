@@ -6,9 +6,11 @@ import { useNavigate } from 'react-router';
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
-  const { openCart, openMenu, checkout } = React.useContext<any>(ShopContext);
+  const { openCart, openMenu, checkout, themeColor1, themeColor2, accentColor1 } =
+    React.useContext<any>(ShopContext);
 
   const getCartItemQty = () => {
+    console.log('render');
     let cartItemQty = 0;
     checkout.lineItems?.forEach((item: any) => {
       if (cartItemQty >= 9) return;
@@ -25,17 +27,17 @@ const NavBar: React.FC = () => {
 
   React.useEffect(() => {
     getCartItemQty();
-  }, [openCart, checkout, getCartItemQty]);
+  }, [checkout]);
 
   return (
     <Chakra.Flex
-      backgroundColor='#FFA8E2'
+      backgroundColor={themeColor1}
       justifyContent='space-between'
       alignItems='center'
       padding='1rem'
     >
       <Chakra.Icon
-        fill='white'
+        fill={accentColor1}
         w={30}
         h={30}
         cursor='pointer'
@@ -49,19 +51,24 @@ const NavBar: React.FC = () => {
         src='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/Logologo_1.svg?v=1610055540'
         onClick={() => navigate('/')}
       />
-      <Chakra.Box>
+      <Chakra.Box pos='relative'>
         <Chakra.Badge
-          backgroundColor='#FF38BD'
+          pos='absolute'
+          top='16px'
+          left='-10px'
+          backgroundColor={themeColor2}
+          color={accentColor1}
           borderRadius='50%'
           h={22}
           w={22}
-          p='1px'
+          p='1.2px'
           textAlign='center'
+          display={+getCartItemQty() ? 'block' : 'none'}
         >
           {getCartItemQty()}
         </Chakra.Badge>
         <Chakra.Icon
-          fill='white'
+          fill={accentColor1}
           w={30}
           h={30}
           cursor='pointer'

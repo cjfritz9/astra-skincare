@@ -1,7 +1,12 @@
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
+import Button from './Button';
+import { ShopContext } from '../context/shopContext';
+import { useNavigate } from 'react-router';
 
 const Hero: React.FC = () => {
+  const navigate = useNavigate();
+  const { themeColor2, accentColor1 } = React.useContext<any>(ShopContext);
   return (
     <Chakra.Box backgroundColor='#FFA8E2' h='70vh' w='100%' position='relative'>
       <Chakra.Image
@@ -24,18 +29,14 @@ const Hero: React.FC = () => {
       >
         Stress Ends Here
       </Chakra.Text>
-      <Chakra.Center>
-        <Chakra.Button
-          color='white'
-          backgroundColor='#FF38BD'
-          w='10rem'
-          _hover={{ opacity: 0.9 }}
-          _active={{ transform: 'scale(0.98)' }}
-          position='absolute'
-          bottom='10%'
-        >
-          Shop Now
-        </Chakra.Button>
+      <Chakra.Center pos='relative' bottom='100px'>
+        <Button
+          text='Shop Now'
+          textColor={accentColor1}
+          bgColor={themeColor2}
+          size={{w: '10rem'}}
+          onClick={() => navigate('/products')}
+        />
       </Chakra.Center>
     </Chakra.Box>
   );

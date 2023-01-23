@@ -74,21 +74,26 @@ export class ShopProvider extends React.Component {
     });
   };
 
-  closeCart = async () => {
+  closeCart = () => {
     this.setState({ isCartOpen: false });
   };
 
-  openCart = async () => {
+  openCart = () => {
     this.setState({ isCartOpen: true });
   };
 
-  closeMenu = async () => {
+  closeMenu = () => {
     this.setState({ isMenuOpen: false });
   };
 
-  openMenu = async () => {
+  openMenu = () => {
     this.setState({ isMenuOpen: true });
   };
+
+  themeColor1 = '#FFA8E2';
+  themeColor2 = '#FF38BD';
+  accentColor1 = 'white';
+  accentColor2 = 'gray.500';
 
   render() {
     return (
@@ -102,7 +107,11 @@ export class ShopProvider extends React.Component {
           openCart: this.openCart,
           closeCart: this.closeCart,
           openMenu: this.openMenu,
-          closeMenu: this.closeMenu
+          closeMenu: this.closeMenu,
+          themeColor1: this.themeColor1,
+          themeColor2: this.themeColor2,
+          accentColor1: this.accentColor1,
+          accentColor2: this.accentColor2
         }}
       >
         {this.props.children}

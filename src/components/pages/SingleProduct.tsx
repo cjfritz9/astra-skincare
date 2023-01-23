@@ -2,8 +2,10 @@ import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
 import { ShopContext } from '../../context/shopContext';
+import Button from '../Button';
+import RichText from '../RichText';
 
-const ProductPage: React.FC = () => {
+const SingleProduct: React.FC = () => {
   const { handle } = useParams();
 
   const { fetchProductByHandle, addItemToCheckout, product } =
@@ -13,7 +15,8 @@ const ProductPage: React.FC = () => {
     fetchProductByHandle(handle);
   }, [fetchProductByHandle, handle]);
 
-  if (!product.title) return <div>Loading...</div>;
+  if (!product.title || !window.location.href.includes(product.handle))
+    return <div>Loading...</div>;
 
   return (
     <Chakra.Box p='2rem'>
@@ -22,7 +25,12 @@ const ProductPage: React.FC = () => {
         m='auto'
       >
         <Chakra.Flex justifyContent='center' alignItems='center'>
-          <Chakra.Image minWidth='50vw' borderRadius='10px' mb='2rem' src={product.images[0].src} />
+          <Chakra.Image
+            minWidth='50vw'
+            borderRadius='10px'
+            mb='2rem'
+            src={product.images[0].src}
+          />
         </Chakra.Flex>
         <Chakra.Flex
           flexDirection='column'
@@ -34,20 +42,18 @@ const ProductPage: React.FC = () => {
           <Chakra.Text fontSize='14px' color='gray.500' pb='2rem'>
             ${product.variants[0].price.amount.slice(0, 2)}
           </Chakra.Text>
-          <Chakra.Text color='gray.500' pb='2rem'>{product.description}</Chakra.Text>
-          <Chakra.Button
-            _hover={{ opacity: 0.7 }}
-            _active={{transform: 'scale(0.98)'}}
-            w='10rem'
-            colorScheme='pink'
+          <Chakra.Text color='gray.500' pb='2rem'>
+            {product.description}
+          </Chakra.Text>
+          <Button
+            text='Add To Cart'
             onClick={() => addItemToCheckout(product.variants[0].id, 1)}
-          >
-            Add To Cart
-          </Chakra.Button>
+          />
         </Chakra.Flex>
       </Chakra.Grid>
+      <RichText />
     </Chakra.Box>
   );
 };
 
-export default ProductPage;
+export default SingleProduct;

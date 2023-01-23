@@ -6,11 +6,13 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 import NavMenu from './NavMenu';
 import Home from './pages/Home';
-import ProductPage from './pages/ProductPage';
+import ProductPage from './pages/SingleProduct';
+import { ShopContext } from '../context/shopContext';
 
 const App: React.FC = () => {
+  const { accentColor1 } = React.useContext<any>(ShopContext);
   return (
-    <Chakra.Box className='App' minH='100vh'>
+    <Chakra.Box className='App' minH='100vh' backgroundColor={accentColor1}>
       <NavBar />
       <NavMenu />
       <Cart />
