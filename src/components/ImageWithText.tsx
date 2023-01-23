@@ -5,7 +5,14 @@ import { ShopContext } from '../context/shopContext';
 import Button from './Button';
 import { useNavigate } from 'react-router';
 
-const ImageWithText: React.FC = ({ reverse, image, heading, text }) => {
+type ImageWithTextProps = {
+  reverse?: boolean;
+  image: string;
+  heading: string;
+  text: string;
+};
+
+const ImageWithText: React.FC<ImageWithTextProps> = ({ reverse, image, heading, text }) => {
   const navigate = useNavigate();
   const reverseSection = reverse ? 'row-reverse' : 'row';
 
@@ -22,9 +29,12 @@ const ImageWithText: React.FC = ({ reverse, image, heading, text }) => {
           justifyContent='center'
           alignItems='center'
         >
-          <Chakra.Heading mb='2rem'>{heading}</Chakra.Heading>
+          <Chakra.Heading mb='2rem'>
+            {heading || 'Placeholder Heading'}
+          </Chakra.Heading>
           <Chakra.Text m='2rem' textAlign='center'>
-            {text}
+            {text ||
+              'Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque excepturi quam corporis nam fuga saepe doloribus aliquid eaque totam laboriosam eos, quia minima reiciendis soluta assumenda consectetur ea necessitatibus veniam. Aut optio consectetur nostrum deleniti unde non, sunt doloremque eligendi, illo vel totam maiores culpa officiis beatae vitae! Accusantium esse quisquam sapiente, quod optio voluptas eligendi dicta dolorem totam assumenda.'}
           </Chakra.Text>
           <Button
             text='Browse'

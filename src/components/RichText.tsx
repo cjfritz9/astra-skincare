@@ -27,7 +27,7 @@ const RichText: React.FC<RichTextProps> = ({
         </Chakra.Heading>
         <Chakra.Text px={['2rem', '4rem']}>
           {text ||
-            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolorem.'}
+            'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reiciendis autem, sit inventore nisi aliquam accusamus iusto commodi beatae molestiae cumque in repudiandae ad dolorum deserunt.'}
         </Chakra.Text>
       </Chakra.Flex>
     </Chakra.Box>
