@@ -26,6 +26,7 @@ const Hero: React.FC = () => {
       </Chakra.Text>
       <Chakra.Center>
         <Chakra.Button
+          color='white'
           backgroundColor='#FF38BD'
           w='10rem'
           _hover={{ opacity: 0.9 }}
