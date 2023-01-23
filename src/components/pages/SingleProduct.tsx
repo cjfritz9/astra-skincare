@@ -22,6 +22,7 @@ const SingleProduct: React.FC = () => {
   }, [fetchProductByHandle, handle]);
 
   if (!product.title || !window.location.href.includes(product.handle)) {
+    window.scrollTo(0, 0);
     return (
       <Chakra.Box p='2rem'>
         <Chakra.Progress isIndeterminate colorScheme='pink' my='2rem' />
