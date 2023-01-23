@@ -8,6 +8,7 @@ import Gallery3x1 from '../Gallery_3-by-1';
 import ImageWithText from '../ImageWithText';
 
 const SingleProduct: React.FC = () => {
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const { handle } = useParams();
 
   const { fetchProductByHandle, addItemToCheckout, product } =
@@ -15,6 +16,9 @@ const SingleProduct: React.FC = () => {
 
   React.useEffect(() => {
     fetchProductByHandle(handle);
+    if (product.title && window.location.href.includes(product.handle)) {
+      setIsLoading(false);
+    }
   }, [fetchProductByHandle, handle]);
 
   if (!product.title || !window.location.href.includes(product.handle)) {
@@ -71,6 +75,10 @@ const SingleProduct: React.FC = () => {
         <Chakra.Skeleton h='100vh' mt='1rem' />
       </Chakra.Box>
     );
+  }
+
+  if (isLoading) {
+    window.scrollTo(0, 0);
   }
 
   return (
