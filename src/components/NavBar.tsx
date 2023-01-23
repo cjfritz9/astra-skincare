@@ -3,11 +3,20 @@ import * as Chakra from '@chakra-ui/react';
 import * as ReactIcons from 'react-icons/md';
 import { ShopContext } from '../context/shopContext';
 import { useNavigate } from 'react-router';
+import NavMenu from './NavMenu';
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
-  const { openCart, openMenu, checkout, themeColor1, themeColor2, accentColor1 } =
-    React.useContext<any>(ShopContext);
+  const {
+    openCart,
+    openMenu,
+    isMenuOpen,
+    closeMenu,
+    checkout,
+    themeColor1,
+    themeColor2,
+    accentColor1
+  } = React.useContext<any>(ShopContext);
 
   const getCartItemQty = () => {
     console.log('render');
@@ -34,19 +43,11 @@ const NavBar: React.FC = () => {
       backgroundColor={themeColor1}
       justifyContent='space-between'
       alignItems='center'
-      padding='1rem'
+      p='1rem 3rem'
     >
-      <Chakra.Icon
-        fill={accentColor1}
-        w={30}
-        h={30}
-        cursor='pointer'
-        as={ReactIcons.MdMenu}
-        onClick={() => openMenu()}
-      />
+        <NavMenu />
       <Chakra.Image
-        w={80}
-        h={70}
+        h={'60px'}
         cursor='pointer'
         src='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/Logologo_1.svg?v=1610055540'
         onClick={() => navigate('/')}

@@ -1,41 +1,35 @@
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import * as ReactIcons from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 import { ShopContext } from '../context/shopContext';
 
 const NavMenu: React.FC = () => {
-  const { isMenuOpen, closeMenu } = React.useContext<any>(ShopContext);
+  const navigate = useNavigate();
+  const { accentColor1, openMenu, closeMenu, isMenuOpen } =
+    React.useContext<any>(ShopContext);
 
   return (
-    <Chakra.Drawer
-      isOpen={isMenuOpen}
-      onClose={closeMenu}
-      placement='left'
-      size='sm'
-    >
-      <Chakra.DrawerOverlay>
-        <Chakra.DrawerContent>
-          <Chakra.DrawerCloseButton />
-          <Chakra.DrawerHeader>Menu</Chakra.DrawerHeader>
-          <Chakra.DrawerBody>
-            <Chakra.VStack p='2rem'>
-              <Link to='/' onClick={() => closeMenu()}>
-                Home
-              </Link>
-              <Link to='/' onClick={() => closeMenu()}>
-                Home
-              </Link>
-              <Link to='/' onClick={() => closeMenu()}>
-                Home
-              </Link>
-            </Chakra.VStack>
-          </Chakra.DrawerBody>
-          <Chakra.DrawerFooter textAlign='center'>
-            <Chakra.Text>Placeholder</Chakra.Text>
-          </Chakra.DrawerFooter>
-        </Chakra.DrawerContent>
-      </Chakra.DrawerOverlay>
-    </Chakra.Drawer>
+    <Chakra.Menu isLazy onOpen={() => openMenu()} onClose={() => closeMenu()}>
+      <Chakra.MenuButton>
+        <Chakra.Icon
+          fill={accentColor1}
+          w={30}
+          h={30}
+          cursor='pointer'
+          as={isMenuOpen ? ReactIcons.MdMenuOpen : ReactIcons.MdMenu}
+        />
+      </Chakra.MenuButton>
+      <Chakra.MenuList>
+        <Chakra.MenuItem>Download</Chakra.MenuItem>
+        <Chakra.MenuItem>Create a Copy</Chakra.MenuItem>
+        <Chakra.MenuItem>Mark as Draft</Chakra.MenuItem>
+        <Chakra.MenuItem>Delete</Chakra.MenuItem>
+        <Chakra.MenuItem onClick={() => navigate('/')}>
+          Attend a Workshop
+        </Chakra.MenuItem>
+      </Chakra.MenuList>
+    </Chakra.Menu>
   );
 };
 

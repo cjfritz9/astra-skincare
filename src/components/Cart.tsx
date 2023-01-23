@@ -5,6 +5,7 @@ import { ShopContext } from '../context/shopContext';
 import Button from './Button';
 
 const Cart: React.FC = () => {
+  
   const {
     isCartOpen,
     closeCart,

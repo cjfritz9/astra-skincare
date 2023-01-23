@@ -13,7 +13,11 @@ const Home: React.FC = () => {
 
   return (
     <Chakra.Box>
-      <Hero />
+      <Hero
+        bgColor='#FFA8E2'
+        bgImage='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/Bath_Bomb_-_Product-4_-_nobg_1.png?v=1610055851.jpg'
+        heading='Stress Ends Here'
+      />
       <RichText
         heading="The relaxation you've been waiting for"
         text="Settle in for a good soak with an original BathBombs invention, exploding with essential oils and tons of fizzy fun. Whether you're after a relaxing, petal-laden floral soak or an invigorating multilayered explosion of color and scent, there's a handmade bath bomb perfect for every bathing experience."

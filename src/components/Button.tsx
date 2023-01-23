@@ -1,17 +1,7 @@
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
 import { ShopContext } from '../context/shopContext';
-
-type ButtonProps = {
-  text?: string;
-  textColor?: string;
-  bgColor?: string;
-  size?: {
-    h?: string;
-    w?: string;
-  };
-  onClick: Function;
-};
+import { ButtonProps } from '../models/Props';
 
 const Button: React.FC<ButtonProps> = ({
   text,

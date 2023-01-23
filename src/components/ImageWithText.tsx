@@ -4,15 +4,14 @@ import * as Chakra from '@chakra-ui/react';
 import { ShopContext } from '../context/shopContext';
 import Button from './Button';
 import { useNavigate } from 'react-router';
+import { ImageWithTextProps } from '../models/Props';
 
-type ImageWithTextProps = {
-  reverse?: boolean;
-  image: string;
-  heading: string;
-  text: string;
-};
-
-const ImageWithText: React.FC<ImageWithTextProps> = ({ reverse, image, heading, text }) => {
+const ImageWithText: React.FC<ImageWithTextProps> = ({
+  reverse,
+  image,
+  heading,
+  text
+}) => {
   const navigate = useNavigate();
   const reverseSection = reverse ? 'row-reverse' : 'row';
 
