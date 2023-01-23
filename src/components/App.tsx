@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Router from 'react-router-dom';
+import * as Chakra from '@chakra-ui/react';
 import Cart from './Cart';
 import Footer from './Footer';
 import NavBar from './NavBar';
@@ -9,7 +10,7 @@ import ProductPage from './pages/ProductPage';
 
 const App: React.FC = () => {
   return (
-    <div className='App'>
+    <Chakra.Box className='App' minH='100vh'>
       <NavBar />
       <NavMenu />
       <Cart />
@@ -18,7 +19,7 @@ const App: React.FC = () => {
         <Router.Route path='/products/:handle' element={<ProductPage />} />
       </Router.Routes>
       <Footer />
-    </div>
+    </Chakra.Box>
   );
 };
 
