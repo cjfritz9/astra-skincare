@@ -6,7 +6,7 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 import NavMenu from './NavMenu';
 import Home from './pages/Home';
-import ProductPage from './pages/SingleProduct';
+import SingleProduct from './pages/SingleProduct';
 import { ShopContext } from '../context/shopContext';
 import Products from './pages/Products';
 
@@ -20,7 +20,7 @@ const App: React.FC = () => {
       <Router.Routes>
         <Router.Route path='/' element={<Home />} />
         <Router.Route path='/products' element={<Products />} />
-        <Router.Route path='/products/:handle' element={<ProductPage />} />
+        <Router.Route path='/products/:handle' element={<SingleProduct />} />
       </Router.Routes>
       <Footer />
     </Chakra.Box>

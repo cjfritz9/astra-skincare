@@ -1,13 +1,7 @@
 //@ts-nocheck
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
-
-type RichTextProps = {
-  heading?: string;
-  text?: string;
-  textColor?: string;
-  bgColor?: string;
-};
+import { RichTextProps } from '../models/Props';
 
 const RichText: React.FC<RichTextProps> = ({
   heading,

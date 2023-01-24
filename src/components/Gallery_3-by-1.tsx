@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
 import { ShopContext } from '../context/shopContext';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Gallery3x1Props } from '../models/Props';
 
 const Gallery3x1: React.FC<Gallery3x1Props> = ({ heading, padding }) => {

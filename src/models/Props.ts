@@ -30,3 +30,11 @@ export type ImageWithTextProps = {
   heading: string;
   text: string;
 };
+
+
+export type RichTextProps = {
+  heading?: string;
+  text?: string;
+  textColor?: string;
+  bgColor?: string;
+};

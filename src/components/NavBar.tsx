@@ -7,16 +7,8 @@ import NavMenu from './NavMenu';
 
 const NavBar: React.FC = () => {
   const navigate = useNavigate();
-  const {
-    openCart,
-    openMenu,
-    isMenuOpen,
-    closeMenu,
-    checkout,
-    themeColor1,
-    themeColor2,
-    accentColor1
-  } = React.useContext<any>(ShopContext);
+  const { openCart, checkout, themeColor1, themeColor2, accentColor1 } =
+    React.useContext<any>(ShopContext);
 
   const getCartItemQty = () => {
     console.log('render');
@@ -46,7 +38,7 @@ const NavBar: React.FC = () => {
       p='1rem 3rem'
       borderBottom={themeColor2 + ' solid 1px'}
     >
-        <NavMenu />
+      <NavMenu />
       <Chakra.Image
         h={'60px'}
         cursor='pointer'
