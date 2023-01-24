@@ -25,6 +25,7 @@ const Hero: React.FC<HeroProps> = ({
       <Chakra.Image
         h='100%'
         m='auto'
+        cursor='pointer'
         objectFit='contain'
         objectPosition={['top', 'center']}
         src={bgImage}
