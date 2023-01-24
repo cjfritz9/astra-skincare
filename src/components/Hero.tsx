@@ -28,6 +28,8 @@ const Hero: React.FC<HeroProps> = ({
         cursor='pointer'
         objectFit='contain'
         objectPosition={['top', 'center']}
+        _hover={{ transform: 'scale(1.05)' }}
+        transition='transform 1s ease'
         src={bgImage}
       />
       <Chakra.Heading
