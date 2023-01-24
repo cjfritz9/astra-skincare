@@ -41,9 +41,10 @@ const NavBar: React.FC = () => {
   return (
     <Chakra.Flex
       backgroundColor={themeColor1}
-      justifyContent='space-between'
+      justifyContent='space-around'
       alignItems='center'
       p='1rem 3rem'
+      borderBottom={themeColor2 + ' solid 1px'}
     >
         <NavMenu />
       <Chakra.Image

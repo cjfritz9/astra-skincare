@@ -20,10 +20,12 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/mulish": "^4.5.14",
+    "classnames": "^2.3.2",
     "framer-motion": "^8.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
+    "react-paginate": "^8.1.4",
     "react-router-dom": "^6.7.0",
     "react-scripts": "^5.0.1",
     "shopify-buy": "^2.18.0"
@@ -42,9 +44,11 @@
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
+    "@types/react-infinite-scroll-component": "^5.0.0",
     "@types/react-router": "^5.1.20",
     "@types/react-router-dom": "^5.3.3",
     "@types/shopify-buy": "^2.10.10",
+    "react-infinite-scroll-component": "^6.1.0",
     "typescript": "^4.9.4"
   }
 }

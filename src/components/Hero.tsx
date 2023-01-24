@@ -15,7 +15,13 @@ const Hero: React.FC<HeroProps> = ({
   const { themeColor1, themeColor2, accentColor1 } =
     React.useContext<any>(ShopContext);
   return (
-    <Chakra.Box backgroundColor={bgColor} h='70vh' w='100%' position='relative'>
+    <Chakra.Box
+      backgroundColor={bgColor}
+      h='70vh'
+      w='100%'
+      position='relative'
+      onClick={() => navigate('/products')}
+    >
       <Chakra.Image
         h='100%'
         m='auto'

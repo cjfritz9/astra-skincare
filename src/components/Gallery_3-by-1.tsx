@@ -30,10 +30,11 @@ const Gallery3x1: React.FC<Gallery3x1Props> = ({ heading, padding }) => {
           if (window.location.href.includes(product.handle)) return;
           return (
             <Chakra.Box
-              _hover={{ opacity: 0.9, transform: 'scale(1.02)', zIndex: 10 }}
-              textAlign='center'
-              pos='relative'
               key={product.id}
+              cursor='pointer'
+              pos='relative'
+              textAlign='center'
+              _hover={{ opacity: 0.9, transform: 'scale(1.02)', zIndex: 10 }}
             >
               <Chakra.Image
                 onClick={() => navigate(`/products/${product.handle}`)}

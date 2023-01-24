@@ -8,6 +8,7 @@ import NavMenu from './NavMenu';
 import Home from './pages/Home';
 import ProductPage from './pages/SingleProduct';
 import { ShopContext } from '../context/shopContext';
+import Products from './pages/Products';
 
 const App: React.FC = () => {
   const { accentColor1 } = React.useContext<any>(ShopContext);
@@ -18,6 +19,7 @@ const App: React.FC = () => {
       <Cart />
       <Router.Routes>
         <Router.Route path='/' element={<Home />} />
+        <Router.Route path='/products' element={<Products />} />
         <Router.Route path='/products/:handle' element={<ProductPage />} />
       </Router.Routes>
       <Footer />
