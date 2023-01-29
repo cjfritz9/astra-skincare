@@ -90,11 +90,6 @@ export class ShopProvider extends React.Component {
     this.setState({ isMenuOpen: true });
   };
 
-  themeColor1 = '#FFA8E2';
-  themeColor2 = '#FF38BD';
-  accentColor1 = 'white';
-  accentColor2 = 'gray.500';
-
   render() {
     return (
       <ShopContext.Provider
@@ -108,10 +103,12 @@ export class ShopProvider extends React.Component {
           closeCart: this.closeCart,
           openMenu: this.openMenu,
           closeMenu: this.closeMenu,
-          themeColor1: this.themeColor1,
-          themeColor2: this.themeColor2,
-          accentColor1: this.accentColor1,
-          accentColor2: this.accentColor2
+          UI_Color1: this.UI_Color1,
+          UI_Color2: this.UI_Color2,
+          UI_Color3: this.accentColor1,
+          UI_Color4: this.accentColor2,
+          UI_Color5: this.accentColor2,
+          UI_Color6: this.accentColor2
         }}
       >
         {this.props.children}

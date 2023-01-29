@@ -1,12 +1,14 @@
 //@ts-nocheck
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
-import { ShopContext } from '../../context/shopContext';
+import { ShopContext } from '../../context/ShopContext';
 import Hero from '../Hero';
 import ImageWithText from '../ImageWithText';
 import RichText from '../RichText';
 import Gallery3x1 from '../Gallery_3-by-1';
+import Announcement from '../../Announcement';
+
+import heroImage from '../../assets/astra-hero.jpg';
 
 const Home: React.FC = () => {
   const { themeColor1, accentColor1 } = React.useContext<any>(ShopContext);
@@ -14,11 +16,11 @@ const Home: React.FC = () => {
   return (
     <Chakra.Box>
       <Hero
-        bgColor='#FFA8E2'
-        bgImage='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/Bath_Bomb_-_Product-4_-_nobg_1.png?v=1610055851.jpg'
-        heading='Stress Ends Here'
+        bgColor='linear-gradient(91deg, #000000 0%, #00000000 100%)'
+        bgImage={heroImage}
+        heading='Unlock 24-7 Hydration with a New Clinically Proven Formula'
       />
-      <RichText
+      {/* <RichText
         heading="The relaxation you've been waiting for"
         text="Settle in for a good soak with an original BathBombs invention, exploding with essential oils and tons of fizzy fun. Whether you're after a relaxing, petal-laden floral soak or an invigorating multilayered explosion of color and scent, there's a handmade bath bomb perfect for every bathing experience."
       />
@@ -39,7 +41,7 @@ const Home: React.FC = () => {
         heading='Unwind'
         text="I'm baby kale chips twee skateboard tattooed, DIY iPhone ugh mixtape tumeric unicorn narwhal. Iceland shoreditch authentic, sartorial vegan twee flannel banh mi bushwick retro farm-to-table single-origin coffee. "
         image='https://cdn.shopify.com/s/files/1/0472/5705/9496/files/bath-bomb-and-candle.jpg?v=1610066758'
-      />
+      /> */}
     </Chakra.Box>
   );
 };

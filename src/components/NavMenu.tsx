@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
 import * as ReactIcons from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
-import { ShopContext } from '../context/shopContext';
+import { ShopContext } from '../context/ShopContext';
 
 const NavMenu: React.FC = () => {
   const navigate = useNavigate();

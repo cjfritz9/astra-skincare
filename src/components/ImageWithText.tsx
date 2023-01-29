@@ -1,7 +1,7 @@
 // @ts-nocheck
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
-import { ShopContext } from '../context/shopContext';
+import { ShopContext } from '../context/ShopContext';
 import Button from './Button';
 import { useNavigate } from 'react-router';
 import { ImageWithTextProps } from '../models/Props';

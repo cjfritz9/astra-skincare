@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
-import { ShopContext } from '../context/shopContext';
+import { ShopContext } from '../context/ShopContext';
 import { ButtonProps } from '../models/Props';
 
 const Button: React.FC<ButtonProps> = ({

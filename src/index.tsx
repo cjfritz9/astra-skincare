@@ -1,18 +1,10 @@
-//@ts-ignore
+// @ts-ignore
 import ReactDOM from 'react-dom/client';
+import ShopProvider from './context/ShopContext';
 import { BrowserRouter as Router } from 'react-router-dom';
+import { ChakraProvider } from '@chakra-ui/react';
 import App from './components/App';
-import ShopProvider from './context/shopContext';
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
-
-import '@fontsource/mulish/400.css';
-
-const theme = extendTheme({
-  fonts: {
-    heading: `'Mulish', sans-serif`,
-    body: `'Mulish', sans-serif`
-  }
-});
+import theme from './context/ThemeContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLDivElement

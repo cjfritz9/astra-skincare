@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Chakra from '@chakra-ui/react';
 import { useParams } from 'react-router-dom';
-import { ShopContext } from '../../context/shopContext';
+import { ShopContext } from '../../context/ShopContext';
 import Button from '../Button';
 import RichText from '../RichText';
 import Gallery3x1 from '../Gallery_3-by-1';

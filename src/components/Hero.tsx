@@ -1,62 +1,64 @@
 import * as React from 'react';
-import * as Chakra from '@chakra-ui/react';
-import Button from './Button';
-import { ShopContext } from '../context/shopContext';
+import { Stack, Text, Button, Image } from '@chakra-ui/react';
+
+// import Button from './Button';
+import { ShopContext } from '../context/ShopContext';
 import { useNavigate } from 'react-router';
 import { HeroProps } from '../models/Props';
 
-const Hero: React.FC<HeroProps> = ({
-  bgColor,
-  bgImage,
-  heading,
-  showBtn = false
-}) => {
-  const navigate = useNavigate();
-  const { themeColor1, themeColor2, accentColor1 } =
-    React.useContext<any>(ShopContext);
+const Hero: React.FC<HeroProps> = ({ bgColor, bgImage, heading }) => {
+  // const navigate = useNavigate();
+  // const { themeColor1, themeColor2, accentColor1 } =
+  //   React.useContext<any>(ShopContext);
+
   return (
-    <Chakra.Box
-      backgroundColor={bgColor}
-      h='70vh'
-      w='100%'
-      position='relative'
-      onClick={() => navigate('/products')}
+    <Stack
+      paddingX='80px'
+      justify='center'
+      align='flex-start'
+      spacing='10px'
+      overflow='hidden'
+      width='100vw'
+      h={['500px', '700px', '900px']}
+      objectFit='cover'
+      bg={`${bgColor}, url(${bgImage})`}
     >
-      <Chakra.Image
-        h='100%'
-        m='auto'
-        cursor='pointer'
-        objectFit='contain'
-        objectPosition={['top', 'center']}
-        _hover={{ transform: 'scale(1.05)' }}
-        transition='transform 1s ease'
-        src={bgImage}
-      />
-      <Chakra.Heading
-        className='fade-in'
-        pos='absolute'
-        bottom='20%'
-        w='100%'
-        textAlign='center'
-        color={accentColor1}
-        fontWeight='bold'
-        fontSize={['3rem', '3rem', '5rem']}
-        textShadow={`${themeColor1} 1px -2px 4px`}
+      {/* <Image src={bgImage} /> */}
+      <Stack
+        justify='flex-start'
+        align='flex-start'
+        spacing='32px'
+        width='698px'
+        maxWidth='100%'
+        boxShadow='Shadow/XL'
       >
-        {heading}
-      </Chakra.Heading>
-      {showBtn ? (
-        <Chakra.Center pos='relative' bottom='100px'>
-          <Button
-            text='Shop Now'
-            textColor={accentColor1}
-            bgColor={themeColor2}
-            size={{ w: '10rem' }}
-            onClick={() => navigate('/products')}
-          />
-        </Chakra.Center>
-      ) : null}
-    </Chakra.Box>
+        <Text
+          fontFamily='Inter'
+          lineHeight='1.2'
+          fontWeight='bold'
+          fontSize='16px'
+          letterSpacing='0.1em'
+          textTransform='uppercase'
+          color='brand.Mint'
+          alignSelf='stretch'
+        >
+          NEW ASTRA SKIN CARE DROP
+        </Text>
+        <Text
+          fontFamily='Marcellus'
+          lineHeight='1'
+          fontWeight='regular'
+          fontSize={['32px', '48px', '64px']}
+          color='#FFFFFF'
+          alignSelf='stretch'
+        >
+          {heading}
+        </Text>
+        <Button size='lg' bgColor='brand.Cream' color='UI.1'>
+          Shop Now
+        </Button>
+      </Stack>
+    </Stack>
   );
 };
 
