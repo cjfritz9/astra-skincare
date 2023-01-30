@@ -6,7 +6,7 @@ import Hero from '../Hero';
 import ImageWithText from '../ImageWithText';
 import RichText from '../RichText';
 import Gallery3x1 from '../Gallery_3-by-1';
-import Announcement from '../../Announcement';
+import Announcement from '../Announcement';
 
 import heroImage from '../../assets/astra-hero.jpg';
 

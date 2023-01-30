@@ -9,16 +9,16 @@ import Home from './pages/Home';
 import SingleProduct from './pages/SingleProduct';
 import { ShopContext } from '../context/ShopContext';
 import Products from './pages/Products';
-import Announcement from '../Announcement';
+import Announcement from './Announcement';
 
 const App: React.FC = () => {
   const { accentColor1 } = React.useContext<any>(ShopContext);
   return (
-    <Chakra.Box className='App' minH='100vh' backgroundColor={accentColor1}>
+    <Chakra.Box className='App' backgroundColor={accentColor1}>
       <Announcement />
       <Navigation />
-      {/* <NavMenu />
-      <Cart /> */}
+       {/* <NavMenu /> */}
+      <Cart /> 
       <Router.Routes>
         <Router.Route path='/' element={<Home />} />
         {/* <Router.Route path='/products' element={<Products />} />

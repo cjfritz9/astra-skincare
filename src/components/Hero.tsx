@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { Stack, Text, Button, Image } from '@chakra-ui/react';
+import { Stack, Text, Button } from '@chakra-ui/react';
 
 // import Button from './Button';
-import { ShopContext } from '../context/ShopContext';
-import { useNavigate } from 'react-router';
+// import { ShopContext } from '../context/ShopContext';
+// import { useNavigate } from 'react-router';
 import { HeroProps } from '../models/Props';
 
 const Hero: React.FC<HeroProps> = ({ bgColor, bgImage, heading }) => {
@@ -18,12 +18,10 @@ const Hero: React.FC<HeroProps> = ({ bgColor, bgImage, heading }) => {
       align='flex-start'
       spacing='10px'
       overflow='hidden'
-      width='100vw'
       h={['500px', '700px', '900px']}
       objectFit='cover'
       bg={`${bgColor}, url(${bgImage})`}
     >
-      {/* <Image src={bgImage} /> */}
       <Stack
         justify='flex-start'
         align='flex-start'
@@ -41,6 +39,7 @@ const Hero: React.FC<HeroProps> = ({ bgColor, bgImage, heading }) => {
           textTransform='uppercase'
           color='brand.Mint'
           alignSelf='stretch'
+          pointerEvents='none'
         >
           NEW ASTRA SKIN CARE DROP
         </Text>
@@ -51,10 +50,16 @@ const Hero: React.FC<HeroProps> = ({ bgColor, bgImage, heading }) => {
           fontSize={['32px', '48px', '64px']}
           color='#FFFFFF'
           alignSelf='stretch'
+          pointerEvents='none'
         >
           {heading}
         </Text>
-        <Button size='lg' bgColor='brand.Cream' color='UI.1'>
+        <Button
+          _active={{ transform: 'scale(0.98)' }}
+          size='lg'
+          bgColor='brand.Cream'
+          color='UI.1'
+        >
           Shop Now
         </Button>
       </Stack>

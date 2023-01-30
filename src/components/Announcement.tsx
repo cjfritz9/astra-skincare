@@ -1,19 +1,27 @@
 import * as React from 'react';
 import { Icon, Stack, Text } from '@chakra-ui/react';
 import { MdClose } from 'react-icons/md';
-import FMC_Component from './animations/defaults';
+import FMC_Component from '../animations/defaults';
 
 const Announcement: React.FC = () => {
   const [shouldRender, setShouldRender] = React.useState(true);
 
-  if (!shouldRender) {
-    const app = document.getElementsByClassName('App')[0]! as HTMLDivElement;
-    app.style.transform = 'translateY(-39px)';
-    app.style.transition = 'transform 0.25s';
-  }
+  React.useEffect(() => {
+    if (!shouldRender) {
+      const app = document.getElementsByClassName('App')[0]! as HTMLDivElement;
+      app.style.transform = 'translateY(-39px)';
+      app.style.transition = 'transform 0.25s';
+      setTimeout(() => {
+        app.style.transform = 'translateY(0px)';
+        app.style.transition = 'transform 0s';
+        (document.getElementById('ann-container')! as HTMLDivElement).remove();
+      }, 250);
+    }
+  }, [shouldRender]);
 
   return (
     <Stack
+      id='ann-container'
       as={FMC_Component}
       animate={!shouldRender && { transform: 'translateY(-39px)' }}
       //@ts-ignore
@@ -24,7 +32,6 @@ const Announcement: React.FC = () => {
       align='center'
       spacing='0px'
       overflow='hidden'
-      width='100vw'
       background='brand.Peri'
       pos='relative'
     >
@@ -42,8 +49,8 @@ const Announcement: React.FC = () => {
         _hover={{ opacity: 0.8 }}
         cursor='pointer'
         pos='absolute'
-        top='.75rem'
-        right='2rem'
+        top='.7rem'
+        right='2.5rem'
         fontSize='18px'
         as={MdClose}
         onClick={() => setShouldRender((prev) => !prev)}

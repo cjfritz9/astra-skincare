@@ -102,13 +102,7 @@ export class ShopProvider extends React.Component {
           openCart: this.openCart,
           closeCart: this.closeCart,
           openMenu: this.openMenu,
-          closeMenu: this.closeMenu,
-          UI_Color1: this.UI_Color1,
-          UI_Color2: this.UI_Color2,
-          UI_Color3: this.accentColor1,
-          UI_Color4: this.accentColor2,
-          UI_Color5: this.accentColor2,
-          UI_Color6: this.accentColor2
+          closeMenu: this.closeMenu
         }}
       >
         {this.props.children}
